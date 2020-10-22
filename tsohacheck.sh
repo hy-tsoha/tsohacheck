@@ -24,11 +24,14 @@ for d in * ; do
     find . -path ./venv -prune -o -name ".DS_Store" -print >> $LOGFILE
     find . -path ./venv -prune -o -name "*.pyc" -print >> $LOGFILE
     find . -type d -name "venv" -print >> $LOGFILE
+    echo >> $LOGFILE
     echo "Possibly problematic files:" >> $LOGFILE
     find . -path ./venv -prune -o -name ".vscode" -print >> $LOGFILE
     find . -path ./venv -prune -o -name ".idea" -print >> $LOGFILE
+    echo >> $LOGFILE
     echo "Pylint:" >> $LOGFILE
     find . -path ./venv -prune -o -name "*.py" -exec pylint3 --disable=missing-docstring --disable=import-error --reports=n {} \; >> $LOGFILE
+    echo >> $LOGFILE
     echo "Custom checks:" >> $LOGFILE
     python3 ../custom.py >> $LOGFILE
     cd ..
