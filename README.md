@@ -13,9 +13,8 @@ Script expects following tools (should be already installed on department comput
 ## Usage
 
 Write repo paths into file repolist, each path for separate line, for example:
-``https://github.com/student1/example1.git
-
-https://github.com/student2/example2.git``
+    https://github.com/student1/example1.git
+    https://github.com/student2/example2.git
 
 Then run the script: `bash tsohacheck.sh` in empty directory.
 
