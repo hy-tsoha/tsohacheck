@@ -29,6 +29,8 @@ for d in * ; do
     find . -path ./venv -prune -o -name ".idea" -print >> $LOGFILE
     echo "Pylint:" >> $LOGFILE
     find . -path ./venv -prune -o -name "*.py" -exec pylint3 --disable=missing-docstring --disable=import-error --reports=n {} \; >> $LOGFILE
+    echo "Custom checks:" >> $LOGFILE
+    python3 ../custom.py >> $LOGFILE
     cd ..
   fi
 done
