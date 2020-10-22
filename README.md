@@ -23,7 +23,7 @@ Script assumes you are in the start in empty directory, except for script and re
 
 Script will:
 
-- clone all repos listed in repolist
+- clone all public repos listed in repolist (cloning will fail for repo if it requires login)
 - run some checks for extra files
 - run pylint
 
