@@ -2,6 +2,8 @@
 
 FILE="repolist"
 LOGFILE="tsohacheck.log"
+PYTHON="python3"
+PYLINT="pylint3"
 
 echo "Start: $(date -Iminutes)" >> $LOGFILE
 while read repo
@@ -33,10 +35,10 @@ for d in * ; do
         find . -path ./venv -prune -o -name ".idea" -print
         echo
         echo "Pylint:"
-        find . -path ./venv -prune -o -name "*.py" -exec pylint3 --disable=missing-docstring --disable=import-error --reports=n {} \;
+        find . -path ./venv -prune -o -name "*.py" -exec $PYLINT --disable=missing-docstring --disable=import-error --reports=n {} \;
         echo
         echo "Custom checks:"
-        python3 ../custom.py
+        $PYTHON ../custom.py
       } >> $LOGFILE
     )
   fi
