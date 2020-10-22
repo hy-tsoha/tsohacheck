@@ -7,6 +7,7 @@ Script expects following tools (should be already installed on department comput
 
 - working linux environment (Department distribution or something similar, eg ubuntu)
 - bash
+- python3
 - pylint3
 - find
 - git
@@ -21,7 +22,7 @@ Write repo paths into file repolist, each path for separate line, for example:
 
 Then run the script: `bash tsohacheck.sh` in empty directory.
 
-Script assumes you are in the start in empty directory, except for script and repolist.
+Script assumes you are in the start in empty directory, except for scripts and repolist. (Importantly, that there are no subdirectories.)
 
 Script will:
 
@@ -29,4 +30,9 @@ Script will:
 - run some checks for extra files
 - run pylint
 
-Results of cloning are saved in to tsohacheck.log file. Results of checks are saved in tsohacheck.log in repository directory.
+Results of cloning are saved in to tsohacheck.log file in starting directory. Results of repo checks are saved in tsohacheck.log in repository directory.
+
+
+## Future development
+
+If you want to write custom checks, you can add them to custom.py and output results to include them in report. Please, make also pull request to add them to this repo.
