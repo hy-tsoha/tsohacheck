@@ -3,11 +3,11 @@
 FILE="repolist"
 LOGFILE="tsohacheck.log"
 
-echo "Start:"
-date -Iminutes >> $LOGFILE
+echo "Start: $(date -Iminutes)" >> $LOGFILE
 while read repo
 do
-  if GIT_TERMINAL_PROMPT=0 git clone -q "$repo"
+student=$(echo "$repo"|sed "s#.*/\([a-zA-Z0-9+-]*\)/[a-zA-Z0-9+-]*\.git#\1#")
+  if GIT_TERMINAL_PROMPT=0 git clone -q "$repo" "$student"
   then
     status="OK"
   else
@@ -16,8 +16,7 @@ do
   echo "$repo $status"
   echo "$repo $status" >> $LOGFILE
 done < $FILE
-echo "End:"
-date -Iminutes >> $LOGFILE
+echo "End: $(date -Iminutes)" >> $LOGFILE
 
 for d in * ; do
   if [ -d "$d" ]; then
