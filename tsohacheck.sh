@@ -22,23 +22,23 @@ date -Iminutes >> $LOGFILE
 for d in * ; do
   if [ -d "$d" ]; then
     (
-    cd "$d" || exit
-    {
-      echo "Extra files/directories:"
-      find . -path ./venv -prune -o -name ".DS_Store" -print
-      find . -path ./venv -prune -o -name "*.pyc" -print
-      find . -type d -name "venv" -print
-      echo
-      echo "Possibly problematic files:"
-      find . -path ./venv -prune -o -name ".vscode" -print
-      find . -path ./venv -prune -o -name ".idea" -print
-      echo
-      echo "Pylint:"
-      find . -path ./venv -prune -o -name "*.py" -exec pylint3 --disable=missing-docstring --disable=import-error --reports=n {} \;
-      echo
-      echo "Custom checks:"
-      python3 ../custom.py
-    } >> $LOGFILE
+      cd "$d" || exit
+      {
+        echo "Extra files/directories:"
+        find . -path ./venv -prune -o -name ".DS_Store" -print
+        find . -path ./venv -prune -o -name "*.pyc" -print
+        find . -type d -name "venv" -print
+        echo
+        echo "Possibly problematic files:"
+        find . -path ./venv -prune -o -name ".vscode" -print
+        find . -path ./venv -prune -o -name ".idea" -print
+        echo
+        echo "Pylint:"
+        find . -path ./venv -prune -o -name "*.py" -exec pylint3 --disable=missing-docstring --disable=import-error --reports=n {} \;
+        echo
+        echo "Custom checks:"
+        python3 ../custom.py
+      } >> $LOGFILE
     )
   fi
 done
