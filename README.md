@@ -5,6 +5,8 @@ tool for course assistants
 
 Script expects following tools (should be already installed on department computers):
 
+- working linux environment (Department distribution or something similar, eg ubuntu)
+- bash
 - pylint3
 - find
 - git
