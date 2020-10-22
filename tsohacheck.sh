@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-
 FILE="repolist"
 LOGFILE="tsohacheck.log"
 
+echo "Start:"
 date -Iminutes >> $LOGFILE
 while read repo
 do
@@ -16,6 +16,8 @@ do
   echo "$repo $status"
   echo "$repo $status" >> $LOGFILE
 done < $FILE
+echo "End:"
+date -Iminutes >> $LOGFILE
 
 for d in * ; do
   if [ -d "$d" ]; then
