@@ -8,7 +8,7 @@ PYLINT="pylint3"
 echo "Start: $(date -Iminutes)" >> $LOGFILE
 while read repo
 do
-student=$(echo "$repo"|sed "s#.*/\([a-zA-Z0-9+-]*\)/[a-zA-Z0-9+-]*\.git#\1#")
+student=$(echo "$repo"|sed "s#.*/\([a-zA-Z0-9+-]*\)/[a-zA-Z0-9+-]*\(\.git\)\?#\1#")
   if GIT_TERMINAL_PROMPT=0 git clone -q "$repo" "$student"
   then
     status="OK"
