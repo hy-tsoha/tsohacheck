@@ -5,7 +5,7 @@ tool for course assistants
 
 Script expects following tools (should be already installed on department computers):
 
-- working linux environment (Department distribution or something similar, eg ubuntu)
+- working linux environment (if necessary, adjust names of python and pylint within the script)
 - bash
 - python3
 - pylint3
@@ -15,6 +15,8 @@ Script expects following tools (should be already installed on department comput
 
 
 ## Usage
+
+Copy the script and other files to a directory where you want to run this script. You probably want to have separate directories to run this script for each week to be checked.
 
 Write repo paths into file `repolist`, each path for separate line, for example:
 
@@ -27,7 +29,7 @@ Script assumes you are at the start in empty directory, except for scripts and r
 
 Script will:
 
-- clone all public repos listed in repolist (cloning will fail for repo if it requires login)
+- clone all public repos listed in repolist (cloning will be reported as a fail for repo if it requires login)
 - run some checks for extra files
 - run pylint
 - run (possible) checks from custom.py
@@ -37,4 +39,4 @@ Results of cloning are saved in to tsohacheck.log file in starting directory. Re
 
 ## Future development
 
-If you want to write custom checks, you can add them to custom.py and output results to include them in report. Please, make also pull request to add them to this repo.
+If you want to write custom checks, you can add them to custom.py and output results to include them in report. Please, if your additions are generally useful, make also a pull request to add them to this repo.
