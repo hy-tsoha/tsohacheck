@@ -16,14 +16,14 @@ Script expects following tools (should be already installed on department comput
 
 ## Usage
 
-Write repo paths into file repolist, each path for separate line, for example:
+Write repo paths into file `repolist`, each path for separate line, for example:
 
     https://github.com/student1/example1.git
     https://github.com/student2/example2
 
 Then run the script: `bash tsohacheck.sh` in empty directory (except for repolist and scripts).
 
-Script assumes you are in the start in empty directory, except for scripts and repolist. (Importantly, that there is no subdirectories.)
+Script assumes you are at the start in empty directory, except for scripts and repolist. (Importantly, that there is no subdirectories.)
 
 Script will:
 
